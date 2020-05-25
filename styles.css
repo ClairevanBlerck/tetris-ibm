@@ -1,0 +1,113 @@
+* {
+    /*border: 1px red solid;*/
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Press Start 2P', sans-serif;
+    font-weight: 200;
+    font-size: 25px;
+    color: rgb(190, 190, 190);
+}
+
+body {
+    margin-top: 1rem;
+    background-color: rgb(0, 0, 0);
+}
+
+
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+
+.left {
+    display: block;
+    margin: 1rem;
+}
+
+h3#score-heading {
+    margin: 1rem;
+}
+
+#score {
+    color: rgb(238, 255, 163);
+}
+
+#start-button {
+    font-size: 0.95rem;
+    color: red;
+    background-color: black;
+    border: none;
+    margin-top: 1rem;
+}
+
+.help {
+}
+
+.help h3 {
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.help ul {
+    padding-left: 0;
+}
+
+.help li {
+    list-style: none;
+
+}
+
+.next {
+    color: rgb(190, 190, 190);
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.next h3 {
+    padding: 1rem;
+}
+
+.mini-grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 122px;
+    height: 100px;
+    background-color: rgb(0, 0, 0);
+    margin: 0 auto;
+
+}
+
+.mini-grid div {
+    width: 30px;
+    height: 25px;
+}
+
+
+.center h3 {
+    color: red;
+    text-align: center;
+    object-fit: fill;
+    margin-top: 1rem;
+}
+
+.grid {
+    width: 320px;
+    height: 520px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 7px dotted blue;
+}
+
+.grid div {
+    width: 30px;
+    height: 25px;
+}
+
+.tetromino {
+    background-color: rgb(0, 0, 0);
+}
