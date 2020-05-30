@@ -35,14 +35,6 @@ h3#score-heading {
     color: rgb(238, 255, 163);
 }
 
-#start-button {
-    font-size: 0.95rem;
-    color: red;
-    background-color: black;
-    border: none;
-    margin-top: 1rem;
-}
-
 .help {
 }
 
@@ -75,15 +67,15 @@ h3#score-heading {
 .mini-grid {
     display: flex;
     flex-wrap: wrap;
-    width: 122px;
-    height: 100px;
+    width: 102px;
+    height: 102px;
     background-color: rgb(0, 0, 0);
     margin: 0 auto;
 
 }
 
 .mini-grid div {
-    width: 30px;
+    width: 25px;
     height: 25px;
 }
 
@@ -96,18 +88,80 @@ h3#score-heading {
 }
 
 .grid {
-    width: 320px;
-    height: 520px;
+    width: 307px;
+    height: 560px;
     display: flex;
     flex-wrap: wrap;
-    border: 7px dotted blue;
+    border: 21px dotted blue;
+    padding: 0.3rem;
 }
 
 .grid div {
-    width: 30px;
+    width: 25px;
     height: 25px;
 }
 
 .tetromino {
     background-color: rgb(0, 0, 0);
+}
+
+#start-button {
+    font-size: 1rem;
+    color: red;
+    background-color: black;
+    border: none;
+    margin-top: 1rem;
+}
+
+
+.right {
+
+}
+
+
+h3#stats-heading {
+    margin-right: 6rem;
+    float: right;
+}
+
+
+.stats-grid {
+    width: 264px;
+    height: 364px;
+    display: flex;
+    flex-wrap: wrap;
+    /*border: 7px dotted red;*/
+}
+
+.stats-grid div {
+    width: 25px;
+    height: 26px;
+}
+
+div.l1 {
+    background-color: #ff00ff;
+}
+
+div.i {
+    background-color: #ff0000;
+}
+
+div.t {
+    background-color: #ffa500;
+}
+
+div.z1 {
+    background-color: #00ff00;
+}
+
+div.z2 {
+    background-color: #00ffff;
+}
+
+div.o {
+    background-color: #0000ff;
+}
+
+div.l2 {
+    background-color: #ffffff;
 }
