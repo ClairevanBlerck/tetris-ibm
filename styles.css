@@ -27,6 +27,22 @@ body {
     margin: 1rem;
 }
 
+h3#levels-heading {
+    margin: 1rem;
+}
+
+#levels {
+    color: rgb(238, 255, 163);
+}
+
+h3#lines-heading {
+    margin: 1rem;
+}
+
+#lines {
+    color: rgb(238, 255, 163);
+}
+
 h3#score-heading {
     margin: 1rem;
 }
@@ -76,7 +92,7 @@ h3#score-heading {
 
 .mini-grid div {
     width: 25px;
-    height: 25px;
+    height: 26px;
 }
 
 

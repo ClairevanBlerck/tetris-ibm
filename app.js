@@ -1,17 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const grid = document.querySelector('.grid')
-    let squares = Array.from(document.querySelectorAll('.grid div'))
-    const scoreDisplay = document.querySelector('#score')
-    const startButton = document.querySelector('#start-button')
-    const width = 10
-    let nextRandom = 0
+    const grid = document.querySelector('.grid');
+    let squares = Array.from(document.querySelectorAll('.grid div'));
+    let score = 0; // the current score
+    const scoreDisplay = document.querySelector('#score');
+    let stats = 0;
+    const statsDisplay = document.querySelector('#stats');
+    let levels = 0; // the level increases every ten lines you clear
+    const levelsDisplay = document.querySelector('#levels');
+    let lines = 0; // the number of cleared lines
+    const linesDisplay = document.querySelector('#lines');
+    const startButton = document.querySelector('#start-button');
+    const width = 10;
+    let nextRandom = 0;
     let timerId
-    let score = 0
+
     const colors  = [
         'magenta',
         'white',
         'lime',
-        'yellow',
+        'cyan',
         'orange',
         'blue',
         'red'
@@ -75,8 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //randomly select a Tetromino and it's first rotation
     let random = Math.floor(Math.random()*theTetrominoes.length)
-    console.log(random)
-    let current = theTetrominoes[random][currentRotation]
+    console.log(random);
+    let current = theTetrominoes[random][currentRotation];
 
     //draw the Tetromino
     function draw() {
@@ -99,13 +106,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //assign functions on keyCodes
     function control(e) {
-        if(e.keyCode === 37) {
+        if(e.keyCode === 55) {
             moveLeft()
-        } else if (e.keyCode === 38) {
+        } else if (e.keyCode === 56) {
             rotate()
-        } else if (e.keyCode === 39) {
+        } else if (e.keyCode === 57) {
             moveRight()
-        } else if (e.keyCode == 40) {
+        } else if (e.keyCode == 54) {
             moveDown()
         }
     }
@@ -131,6 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
             draw()
             displayShape()
             addScore()
+            addLevels()
             gameOver()
         }
     }
@@ -195,6 +203,8 @@ document.addEventListener('DOMContentLoaded', () => {
             displaySquares[displayIndex + index].classList.add('tetromino')
             displaySquares[displayIndex + index].style.backgroundColor = colors[nextRandom]
         })
+        stats += 1;
+        statsDisplay.innerHTML = stats;
     }
 
     //add functionality to the button
@@ -211,12 +221,14 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     //add score
-    function addScore() {
-        for (let i = 0; i < 199; i +=width) {
+    function addScore(){
+        for (let i = 0; i < 199; i += width) {
             const row = [i, i+1, i+2, i+3, i+4, i+5, i+6, i+7, i+8, i+9]
             if(row.every(index => squares[index].classList.contains('taken'))) {
-                score +=10
-                scoreDisplay.innerHTML = score
+                score += 10
+                scoreDisplay.innerHTML = score;
+                lines += 1;
+                linesDisplay.innerHTML = lines;
                 row.forEach(index => {
                     squares[index].classList.remove('taken')
                     squares[index].classList.remove('tetromino')
@@ -229,10 +241,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    //add levels
+    function addLevels() {
+        if(lines +10) {
+            levels += 1;
+            levelsDisplay.innerHTML = levels;
+        } 
+    }
+
     //game over
     function gameOver() {
         if(current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
-        scoreDisplay.innerHTML = 'end'
+        scoreDisplay.innerHTML = 'Game Over'
         clearInterval(timerId)
         }
     }
